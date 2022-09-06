@@ -6,14 +6,14 @@ import Moment from "react-moment";
 import { io } from "socket.io-client";
 const ChatRoom = () => {
   const location = useLocation();
-  const messageEndRef = useRef(null);
+  let messageEndRef = useRef(null);
 
-  const [data, setData] = useState({});
+  let [data, setData] = useState({});
   //Store:- Current message.
-  const [msg, setMsg] = useState("");
+  let [msg, setMsg] = useState("");
 
   //Array state to store all messages.
-  const [allMessages, setMessages] = useState([]);
+  let [allMessages, setMessages] = useState([]);
   // We don't emit socket (socket.emit) any where like in onSubmit . We can create emit only on where we define socket (socket.on) so with
   //this state we write that emit in socket.on
   const [socket, setSocket] = useState();

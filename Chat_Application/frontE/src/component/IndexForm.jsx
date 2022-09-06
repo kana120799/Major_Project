@@ -2,21 +2,26 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const IndexForm = () => {
+  let t;
   let navigation = useNavigate();
   //useSatate for Validation check.
-  const [check, setErrorCheck] = useState("");
+  let [check, setErrorCheck] = useState("");
   //useState for store User name and Room from navigation
-  const [data, setData] = useState({ name: "", room: "" });
+  let [data, setData] = useState({ name: "", room: "" });
 
   // =============== Update User data state by setData()    =================
-  const handleChange = (e) => {
-    setData({
-      ...data,
-      [e.target.name]: e.target.value,
-    });
+  let handleChange = (e) => {
+    if (t) clearTimeout(t);
+    t = setTimeout(() => {
+      console.log("jhjafhhafhh");
+      setData({
+        ...data,
+        [e.target.name]: e.target.value,
+      });
+    }, 1000);
   };
   //  =====================================  VAlidation in User Entry   ====================
-  const validation = () => {
+  let validation = () => {
     if (!data.name) {
       setErrorCheck("*Please enter your name.");
       return false;
@@ -30,7 +35,7 @@ const IndexForm = () => {
   };
 
   //  ======================   Handle Submit ====================
-  const handleSubmit = (e) => {
+  let handleSubmit = (e) => {
     e.preventDefault();
     const isValid = validation();
     if (isValid) {
