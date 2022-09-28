@@ -1,0 +1,5 @@
+node_modules
+package-lock.json
+.env
+FrontE/node_modules
+FrontE/package-lock.json

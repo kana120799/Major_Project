@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
+import productLoad from "../productLoad.js";
 
-const Connection = async (username, password) => {
-  const url = `mongodb+srv://${username}:${password}@flipkart-ecomm.uwe2n.mongodb.net/?retryWrites=true&w=majority`;
+const Connection = async (url) => {
   //   useFindAndModify: false,
   try {
     await mongoose.connect(url, {
@@ -9,8 +9,9 @@ const Connection = async (username, password) => {
       useNewUrlParser: true,
     });
     console.log("Database Connected Succesfully");
+    productLoad();
   } catch (error) {
-    console.log("Error: ", error.message);
+    console.log("Error During DB Connection:- ", error.message);
   }
 };
 
